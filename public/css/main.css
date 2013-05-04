@@ -1,0 +1,42 @@
+header {
+	height: 100px;
+}
+
+h1 {
+	font-size: 50px;
+	text-align: center;
+	line-height: 60px;
+	width: 600px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+#images {
+	position: relative;
+	width: 600px;
+	margin: 0 auto;
+}
+
+.imagebox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 360px;
+	width: 600px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.imagebox > span {
+	display: block;
+	width: 1000px;
+	margin-left: -200px;
+}
+
+.layer {
+	opacity: 0.25;
+	/*filter: alpha(opacity=40);  For IE8 and earlier */
+	max-height: 360px;
+	min-width: 600px;
+}
+
