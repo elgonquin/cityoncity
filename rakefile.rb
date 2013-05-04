@@ -11,5 +11,5 @@ task :updatedb do
 	melbourne = HTTParty.get('https://www.googleapis.com/customsearch/v1?key=AIzaSyDiALif9o9MJdPUXpas_WGSO-9-cz_a4zU&cx=013540816258995479397:wtodrf8plwa&alt=json&searchType=image&imgSize=large&q=melbourne')
 
 	
-	
+puts "task run & complete"	
 end
