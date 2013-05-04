@@ -1,4 +1,5 @@
 require 'httparty'
+require 'data_mapper'
 
 task :default => ["updatedb"]
 
