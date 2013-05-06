@@ -1,13 +1,16 @@
 header {
+	max-width: 1100px;
+	margin: 0 auto;
 	height: 100px;
 }
 
 h1 {
-	font-size: 50px;
-	text-align: center;
+	font-family: "museo-sans",sans-serif;
+	font-weight: 100;
+	font-size: 36px;
+	text-align: left;
 	line-height: 60px;
 	width: 600px;
-	margin: 0 auto;
 	padding: 20px 0;
 }
 

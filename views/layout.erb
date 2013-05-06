@@ -5,11 +5,13 @@
     	<title>City on City</title>
     	<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<script type="text/javascript" src="//use.typekit.net/xdl8xxo.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	</head>
 
 	<body>
 		<header>
-			<h1>A Portrait of <%= @city %></h1>
+			<h1><%= @city.upcase %> on <%= @city.upcase %></h1>
 		</header>
 
 		<ul>
