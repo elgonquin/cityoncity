@@ -1,22 +1,187 @@
 require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
-
-
-database connection
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
-
-class CityImages
-    include DataMapper::Resource
-    
-    property :id, Serial
-    property :city, String
-    property :link, URI
-end
-
-DataMapper.finalize
-DataMapper.auto_upgrade!
  
 get '/' do
+
+	@city = "Home"
+
     erb :index
+end
+
+get '/berlin' do
+
+	#database connection
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+	
+	class CityLink
+	    include DataMapper::Resource
+	    
+	    property :id, Serial
+	    property :city, String
+	    property :link, String
+
+	    def self.london
+	    	all(city: "London").map(&:link)
+	    end
+
+	    def self.tokyo
+	    	all(city: "Tokyo").map(&:link)
+	    end
+
+	    def self.newyork
+	    	all(city: "NewYork").map(&:link)
+	    end
+
+	    def self.berlin
+	    	all(city: "Berlin").map(&:link)
+	    end
+
+		def self.melbourne
+	    	all(city: "Melbourne").map(&:link)
+	    end
+
+	end
+
+	DataMapper.finalize
+	DataMapper.auto_upgrade!
+
+	@images = CityLink.berlin
+
+	@city = "Berlin"
+
+	erb :images
+end
+
+get '/london' do
+
+	#database connection
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+	
+	class CityLink
+	    include DataMapper::Resource
+	    
+	    property :id, Serial
+	    property :city, String
+	    property :link, String
+
+	    def self.london
+	    	all(city: "London").map(&:link)
+	    end
+
+	    def self.tokyo
+	    	all(city: "Tokyo").map(&:link)
+	    end
+
+	    def self.newyork
+	    	all(city: "NewYork").map(&:link)
+	    end
+
+	    def self.berlin
+	    	all(city: "Berlin").map(&:link)
+	    end
+
+		def self.melbourne
+	    	all(city: "Melbourne").map(&:link)
+	    end
+
+	end
+
+	DataMapper.finalize
+	DataMapper.auto_upgrade!
+
+	@images = CityLink.london
+
+	@city = "London"
+
+	erb :images
+end
+
+get '/tokyo' do
+
+	#database connection
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+	
+	class CityLink
+	    include DataMapper::Resource
+	    
+	    property :id, Serial
+	    property :city, String
+	    property :link, String
+
+	    def self.london
+	    	all(city: "London").map(&:link)
+	    end
+
+	    def self.tokyo
+	    	all(city: "Tokyo").map(&:link)
+	    end
+
+	    def self.newyork
+	    	all(city: "NewYork").map(&:link)
+	    end
+
+	    def self.berlin
+	    	all(city: "Berlin").map(&:link)
+	    end
+
+		def self.melbourne
+	    	all(city: "Melbourne").map(&:link)
+	    end
+
+	end
+
+	DataMapper.finalize
+
+	DataMapper.auto_upgrade!
+
+	@images = CityLink.tokyo
+
+	@city = "Tokyo"
+
+	erb :images
+end
+
+get '/melbourne' do
+
+	#database connection
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.db")
+	
+	class CityLink
+	    include DataMapper::Resource
+	    
+	    property :id, Serial
+	    property :city, String
+	    property :link, String
+
+	    def self.london
+	    	all(city: "London").map(&:link)
+	    end
+
+	    def self.tokyo
+	    	all(city: "Tokyo").map(&:link)
+	    end
+
+	    def self.newyork
+	    	all(city: "NewYork").map(&:link)
+	    end
+
+	    def self.berlin
+	    	all(city: "Berlin").map(&:link)
+	    end
+
+		def self.melbourne
+	    	all(city: "Melbourne").map(&:link)
+	    end
+
+	end
+
+	DataMapper.finalize
+	DataMapper.auto_upgrade!
+
+	@images = CityLink.melbourne
+
+	@city = "Melbourne"
+
+	erb :images
 end

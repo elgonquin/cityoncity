@@ -9,8 +9,16 @@
 
 	<body>
 		<header>
-			<h1>A Portrait of London</h1>
+			<h1>A Portrait of <%= @city %></h1>
 		</header>
+
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/london">London</a></li>
+			<li><a href="/berlin">Berlin</a></li>
+			<li><a href="/tokyo">Tokyo</a></li>
+			<li><a href="/melbourne">Melbourne</a></li>
+		</ul>
 
 		<div id="images"><%= yield %></div>
 

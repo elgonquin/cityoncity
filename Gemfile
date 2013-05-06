@@ -4,8 +4,12 @@ gem 'httparty'
 gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-timestamps'
+gem 'json'
 gem 'dm-postgres-adapter', :group => :production
 gem 'dm-sqlite-adapter', :group => :development
 group :production do
-gem 'pg'
+	gem 'pg'
+end
+group :development do
+  gem 'dm-sqlite-adapter'
 end

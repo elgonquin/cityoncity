@@ -86,5 +86,6 @@ DEPENDENCIES
   dm-sqlite-adapter
   dm-timestamps
   httparty
+  json
   pg
   sinatra
