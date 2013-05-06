@@ -1,23 +1,99 @@
-header {
+.clear:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+#canvas {
 	max-width: 1100px;
 	margin: 0 auto;
-	height: 100px;
+	padding-top: 100px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.page-dividertop-divider {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dddddd
 }
 
 h1 {
 	font-family: "museo-sans",sans-serif;
 	font-weight: 100;
 	font-size: 36px;
-	text-align: left;
-	line-height: 60px;
-	width: 600px;
-	padding: 20px 0;
+	letter-spacing: 10px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-family: "museo-sans",sans-serif;
+	font-weight: 100;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+#sub-title {
+	margin-top: 15px;
+	font-style: italic;
+	margin-bottom: 50px;
+	color: #777777;
+}
+
+a {
+	font-family: "museo-sans",sans-serif;
+	font-weight: 100;
+	font-size: 15px;
+	letter-spacing: 5px;
+	text-decoration: none;
+	color: #777777;
+}
+
+p a {
+	letter-spacing: 2px;
+}
+
+li {
+	display: block;
+	color: #777777;
+	margin-left: 15px;
+	float: right;
+}
+
+ul {
+	display: block;
+	font-family: "museo-sans",sans-serif;
+	font-weight: 100;
+	font-size: 15px;
+	letter-spacing: 5px;
+	float: right;
+	list-style: none;
+}
+
+.highight ~ a {
+	color: #222222;
+	background-color: #777777; 
+}
+
+#returnlink a {
+	font-family: "museo-sans",sans-serif;
+	font-weight: 100;
+	font-size: 15px;
+	letter-spacing: 5px;
+	text-decoration: none;
+	color: #777777;
+	float: left;
 }
 
 #images {
 	position: relative;
 	width: 600px;
-	margin: 0 auto;
+	height: 360px;
+	margin: 50px auto;
+	margin-bottom: 100px;
 }
 
 .imagebox {
