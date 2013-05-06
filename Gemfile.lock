@@ -64,7 +64,7 @@ GEM
     json_pure (1.7.7)
     multi_json (1.7.2)
     multi_xml (0.5.3)
-    pg (0.15.1)
+    pg (0.14.1)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -87,5 +87,5 @@ DEPENDENCIES
   dm-timestamps
   httparty
   json
-  pg
+  pg (= 0.14.1)
   sinatra
