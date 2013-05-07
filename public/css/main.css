@@ -10,9 +10,7 @@
 #canvas {
 	max-width: 1100px;
 	margin: 0 auto;
-	padding-top: 100px;
-	padding-left: 100px;
-	padding-right: 100px;
+	padding: 100px;
 }
 
 .page-dividertop-divider {
@@ -93,7 +91,15 @@ ul {
 	width: 600px;
 	height: 360px;
 	margin: 50px auto;
-	margin-bottom: 100px;
+	margin-bottom: 0px;
+}
+
+#imagecap {
+	font-size: 10px;
+	color: #777777;
+	letter-spacing: 0px;
+	margin: 0 auto;
+	width: 600px;
 }
 
 .imagebox {
