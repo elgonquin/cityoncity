@@ -5,7 +5,7 @@ gem 'data_mapper'
 gem 'dm-migrations'
 gem 'dm-timestamps'
 gem 'json'
-gem 'RMagick'
+gem 'rmagick'
 gem 'aws-sdk'
 gem 'dm-postgres-adapter', :group => :production
 gem 'dm-sqlite-adapter', :group => :development
