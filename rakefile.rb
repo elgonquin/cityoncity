@@ -1,6 +1,9 @@
 require 'httparty'
 require 'data_mapper'
 require 'json'
+require 'RMagick'
+include Magick
+require 'aws-sdk'
 
 task :default => ["updatedb"]
 
@@ -115,3 +118,45 @@ task :deletedb do
 
 end
 
+desc "Task to run the search and composite the images for each City, then save them to AWS"
+task :archiveimages do
+
+	#Instantiate a new S3 client
+	s3 = AWS::S3.new
+	#Set S3 bucket
+	bucket = s3.buckets['cityoncity']
+
+	#Create black image object as base for output
+	outputimage = Image.new(960,640) {self.background_color="black"}
+
+	#Create variable to store current date as a string
+	date = Time.now.strftime("%y%m%d")
+
+	#Create an array of cities to search and archive images for, can be added to.
+	cities = ["london",
+				"newyork",
+				"tokyo",
+				"berlin",
+				"melbourne"
+			]
+
+	#For each city in the cities array, get search results using city name in array. 
+	#Then for each search result extract the link, create an temp image object based on the linked image, resize to suit, set opacity to 87.5% transparent. 
+	#Composite temp image onto output image object.
+	#After all search results composited, save output image object to "today" and "archive folders" on AWS as public files
+	#Reset output image for next city search results use.
+	cities.each do |city|
+		cityinfo = HTTParty.get('https://www.googleapis.com/customsearch/v1?key=AIzaSyDiALif9o9MJdPUXpas_WGSO-9-cz_a4zU&cx=013540816258995479397:wtodrf8plwa&alt=json&searchType=image&imgtype=photo&imgSize=xlarge&q='+city)
+		cityinfo["items"].each do |item|
+			itemlink = item["link"].to_s
+			image = Image.read(itemlink)
+			image[0].resize_to_fill!(960,640)
+			image[0].opacity = Magick::MaxRGB * 0.875
+			outputimage = image[0].composite(outputimage,CenterGravity,PlusCompositeOp)
+		end 
+		bucket.objects["today/"+city+".jpg"].write(outputimage.to_blob, {:acl=>:public_read})
+		bucket.objects["archive/"+date+city+".jpg"].write(outputimage.to_blob, {:acl=>:public_read})
+		outputimage = Image.new(960,960) {self.background_color="black"}
+	end
+
+end
